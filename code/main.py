@@ -1,5 +1,6 @@
 from settings import *
 from level import *
+from pytmx.util_pygame import load_pygame
 
 class Game:
 
@@ -7,6 +8,9 @@ class Game:
         pygame.init()
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT))
         pygame.display.set_caption("Pirate World")
+
+        
+
         self.current_stage = Level()
 
     def run(self):
@@ -15,7 +19,7 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-                    
+
             self.current_stage.run()
             pygame.display.update()
 
